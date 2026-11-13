@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" width="960" height="330" role="img" aria-labelledby="t d">
+  <title id="t">Three-site lab network</title>
+  <desc id="d">A core router connects three switches, one per site. Site A, the primary lab segment, is 192.168.10.0/24 with 254 usable hosts (.1 to .254, broadcast .255). Site B, the secondary lab segment, is 192.168.20.0/26 with 62 usable hosts (.1 to .62, broadcast .63). Site C, the management segment, is 10.0.1.0/28 with 14 usable hosts (.1 to .14, broadcast .15).</desc>
+  <style>
+    :root { --ink:#1f2937; --sub:#57606a; --line:#d0d7de; --card:#ffffff; --on:#1a7f37; --tint:#dafbe1; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink:#e6edf3; --sub:#9198a1; --line:#3d444d; --card:#161b22; --on:#3fb950; --tint:#0f2e1a; }
+    }
+    text { font-family: Inter, "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif; }
+    .title { font-size:14.5px; font-weight:700; fill:var(--ink); text-anchor:middle; }
+    .cidr  { font-size:15px; font-weight:700; fill:var(--on); text-anchor:middle; }
+    .sub   { font-size:11px; fill:var(--sub); text-anchor:middle; }
+    .node  { fill:var(--card); stroke:var(--line); stroke-width:1.5; }
+    .core  { fill:var(--tint); stroke:var(--on); stroke-width:1.5; }
+    .wire  { stroke:var(--line); stroke-width:1.5; fill:none; }
+  </style>
+
+  <!-- wires -->
+  <path class="wire" d="M420 82 H150 V138"/>
+  <path class="wire" d="M480 82 V138"/>
+  <path class="wire" d="M540 82 H810 V138"/>
+  <path class="wire" d="M150 182 V208"/>
+  <path class="wire" d="M480 182 V208"/>
+  <path class="wire" d="M810 182 V208"/>
+
+  <!-- core router -->
+  <rect class="core" x="380" y="30" width="200" height="56" rx="12"/>
+  <text class="title" x="480" y="56">Core Router</text>
+  <text class="sub" x="480" y="74">joins the three sites</text>
+
+  <!-- switches -->
+  <rect class="node" x="70"  y="138" width="160" height="44" rx="10"/><text class="title" x="150" y="165">Switch A</text>
+  <rect class="node" x="400" y="138" width="160" height="44" rx="10"/><text class="title" x="480" y="165">Switch B</text>
+  <rect class="node" x="730" y="138" width="160" height="44" rx="10"/><text class="title" x="810" y="165">Switch C</text>
+
+  <!-- sites -->
+  <rect class="node" x="30"  y="208" width="240" height="104" rx="12"/>
+  <text class="title" x="150" y="232">Site A · primary lab</text>
+  <text class="cidr"  x="150" y="256">192.168.10.0/24</text>
+  <text class="sub"   x="150" y="276">mask 255.255.255.0 · 254 hosts</text>
+  <text class="sub"   x="150" y="294">.1 – .254 · broadcast .255</text>
+
+  <rect class="node" x="360" y="208" width="240" height="104" rx="12"/>
+  <text class="title" x="480" y="232">Site B · secondary lab</text>
+  <text class="cidr"  x="480" y="256">192.168.20.0/26</text>
+  <text class="sub"   x="480" y="276">mask 255.255.255.192 · 62 hosts</text>
+  <text class="sub"   x="480" y="294">.1 – .62 · broadcast .63</text>
+
+  <rect class="node" x="690" y="208" width="240" height="104" rx="12"/>
+  <text class="title" x="810" y="232">Site C · management</text>
+  <text class="cidr"  x="810" y="256">10.0.1.0/28</text>
+  <text class="sub"   x="810" y="276">mask 255.255.255.240 · 14 hosts</text>
+  <text class="sub"   x="810" y="294">.1 – .14 · broadcast .15</text>
+</svg>
